@@ -77,7 +77,7 @@
                     <div>
                         <img src="{{marsInfo.featured_image_url}}" class='img-fluid float-left' alt="" width=650>
                     </div>
-
+<br>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div>
@@ -88,9 +88,11 @@
 
                     </div>
                     <br>
-                    <div class="row">
-                        <h3>Mars Facts </h3>
-                        <div class="row">
+                    <div class="container">
+                        <div class='row'><h3>Mars Facts </h3></div>
+                        
+                        <br>
+                        <div class="container">
                             {{ htmlTable }}
                         </div>
 
@@ -103,17 +105,17 @@
             
         </div>
         
-        <div class="row">
+        <div class="row" >
             <div class="container">
                 <h2>Mars Hemispheres</h2>
             </div>
-            <div class="row">
+            <div class="row" >
                 {% for hemisphereItem in marsInfo.hemisphere_image_urls %}
-                <div class="col-lg-6">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card" style="width: 20rem;">
                         <div class="card-body">
-                            <h4 class="card-title">{{ hemisphereItem.title[:-9] }}</h4>
-                            <img src="{{hemisphereItem.image_url}}" alt="" style="width: 300px; height: 300px;">
+                            <h5 class="card-title">{{ hemisphereItem.title[:-9] }}</h5>
+                            <img class='img-fluid' src="{{hemisphereItem.image_url}}" alt="" width='300'>
                         </div>
                     </div>
                 </div>
