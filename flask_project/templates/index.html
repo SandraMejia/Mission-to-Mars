@@ -53,6 +53,8 @@
                 <p>Sandra Mejia</p>
                 <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
             </div>
+            <br>
+
             <div class="row">
                 <div class="container">
                     <h2>Latest Mars News</h2>
@@ -65,55 +67,61 @@
                 </div>
             </div>
 
+            <br>
+
             <div class="row">
-                <div class="col-md-8">
-                    <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <div>
                         <h3>Featured Mars Image</h3>
                     </div>
-                    <div class="row">
-                        <img src="{{marsInfo.featured_image_url}}" alt="" style="width: 650px; height: 650px;">
+                    <div>
+                        <img src="{{marsInfo.featured_image_url}}" class='img-fluid float-left' alt="" width=650>
                     </div>
 
                 </div>
-                <div class="col-md-4">
-                    <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div>
                         <div class="row">
-                            <h5>Current Weather on Mars</h5>
-                        </div>
-                        <div class="row">
+                            <h3>Current Weather on Mars</h3>
                             <p>{{marsInfo.marsWeatherLastTweet}}</p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="row">
-                            <h5>Mars Facts</h5>
-                            <div class="row">
-                                {{ htmlTable}}
-                            </div>
 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <h3>Mars Facts </h3>
+                        <div class="row">
+                            {{ htmlTable }}
                         </div>
+
                     </div>
                 </div>
+
+            </div>
+
+            <br>
+            
+        </div>
+        
+        <div class="row">
+            <div class="container">
+                <h2>Mars Hemispheres</h2>
             </div>
             <div class="row">
-                <div class="row">
-                    <h3>Mars Hemispheres</h3>
-                </div>
-                <div class="row">
-                    {% for hemisphereItem in marsInfo.hemisphere_image_urls %}
-                    <div class="col-lg-4">
-                        <div class="card" style="width: 20rem;">
-                            <div class="card-body">
-                                <h4 class="card-title">{{ hemisphereItem.title }}</h4>
-                                <img src="{{hemisphereItem.image_url}}" alt="" style="width: 300px; height: 300px;">
-                            </div>
+                {% for hemisphereItem in marsInfo.hemisphere_image_urls %}
+                <div class="col-lg-6">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ hemisphereItem.title[:-9] }}</h4>
+                            <img src="{{hemisphereItem.image_url}}" alt="" style="width: 300px; height: 300px;">
                         </div>
                     </div>
-
-                    {% endfor %}
                 </div>
 
+                {% endfor %}
             </div>
+
+        </div>
         </div>
 
         </div>

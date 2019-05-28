@@ -9,6 +9,7 @@ app = Flask(__name__)
 mongo = PyMongo(app, uri="mongodb://localhost:27017/marsAssignament")
 
 
+
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():

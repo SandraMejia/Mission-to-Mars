@@ -80,8 +80,11 @@ def marsFacts():
     # type(marsFactsTables)
     # marsFactsTables[0]
 
-    marsFactsDf = marsFactsTables[0].set_index(0)
-    marsFactsDf = marsFactsDf.rename(columns={0:'',1:''})
+    # marsFactsDf = marsFactsTables[0].set_index(0)
+    # marsFactsDf = marsFactsDf.rename(columns={0:'',1:''})
+
+    marsFactsDf = marsFactsTables[0]
+    marsFactsDf = marsFactsDf.set_index(marsFactsDf.iloc[:,0].values).drop(0,1).rename(columns={1:''})
 
     marsFactsHtml = marsFactsDf.to_html()
     marsFactsHtml = marsFactsHtml.replace('\n', '')
@@ -118,3 +121,17 @@ def marsHemispheres():
     return {
         'hemisphere_image_urls':hemisphere_image_urls
         }
+
+
+
+
+
+
+
+# # setup mongo connection
+# conn = "mongodb://localhost:27017"
+# client = pymongo.MongoClient(conn)
+
+# # connect to mongo db and collection
+# db = client.MarsAssignament
+# collection = db.MarsFacts
